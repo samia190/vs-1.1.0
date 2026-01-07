@@ -38,8 +38,12 @@ app.get('/api/content/:id', (req, res) => {
 });
 
 // Serve frontend
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.get('/', (req, res, next) => {
+  try {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  } catch (error) {
+    next(error);
+  }
 });
 
 // Error handling middleware

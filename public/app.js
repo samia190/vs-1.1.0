@@ -1,5 +1,6 @@
 // API base URL - can be configured for different environments
-const API_BASE_URL = window.location.origin;
+// In production, you can set this via environment variables or configuration
+const API_BASE_URL = window.API_BASE_URL || window.location.origin;
 
 // Check backend health
 async function checkHealth() {
